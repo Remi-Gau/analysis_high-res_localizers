@@ -19,11 +19,11 @@ checkDependencies();
 %% Run batches
 
 % bidsCopyRawFolder(opt, 1);
-% bidsRealignReslice(opt);
+bidsRealignReslice(opt);
 % bidsSmoothing(FWHM, opt);
 % bidsFFX('specifyAndEstimate', opt, FWHM, isMVPA);
 % bidsFFX('contrasts', opt, FWHM, isMVPA);
+% % bidsResults(opt, FWHM, [], isMVPA);
+% bidsFFX('specifyAndEstimate', opt, 0, isMVPA);
+% bidsFFX('contrasts', opt, 0, isMVPA);
 % bidsResults(opt, FWHM, [], isMVPA);
-
-bidsFFX('specifyAndEstimate', opt, 0, isMVPA);
-bidsFFX('contrasts', opt, 0, isMVPA);
