@@ -16,10 +16,11 @@ function opt = getOptionVisualLoc()
 
     % we stay in native space (that of the T1)
     opt.space = 'T1w';
-
+    
     % The directory where the data are located
-    opt.dataDir = fullfile(fileparts(mfilename('fullpath')), ...
-        '..', '..', '..',  'raw');
+    opt.dataDir = '/Users/barilari/Desktop/data_temp/V5_high-res_pilot-1_raw';
+    
+    opt.derivativesDir = '/Users/barilari/data/V5_high-res_pilot-1/derivatives';
 
     % Options for slice time correction
     % If left unspecified the slice timing will be done using the mid-volume acquisition
@@ -35,23 +36,23 @@ function opt = getOptionVisualLoc()
     opt.funcVoxelDims = [];
 
     % Suffix output directory for the saved jobs
-    opt.jobsDir = fullfile(opt.dataDir, '..', 'derivatives', 'SPM12_CPPL', 'JOBS', opt.taskName);
+    opt.jobsDir = fullfile(opt.derivativesDir, 'cpp_spm', 'JOBS', opt.taskName);
 
     % specify the model file that contains the contrasts to compute
-    opt.model.univariate.file =  ...
+    opt.model.file =  ...
         fullfile(fileparts(mfilename('fullpath')), '..', ...
         'model', 'model-visualLocalizer_smdl.json');
 
     % specify the result to compute
-    %     opt.result.Steps(1) = struct( ...
-    %         'Level',  'subject', ...
-    %         'Contrasts', struct( ...
-    %                         'Name', 'motion > static', ... % has to match
-    %                         'Mask', false, ... % this might need improving if a mask is required
-    %                         'MC', 'none', ... FWE, none, FDR
-    %                         'p', 0.05, ...
-    %                         'k', 0, ...
-    %                         'NIDM', true));
+    opt.result.Steps(1) = struct( ...
+                                'Level',  'subject', ...
+                                'Contrasts', struct( ...
+                                'Name', 'motion_gt_static', ... % has to match
+                                'Mask', false, ... % this might need improving if a mask is required
+                                'MC', 'FWE', ... FWE, none, FDR
+                                'p', 0.05, ...
+                                'k', 0, ...
+                                'NIDM', true));
 
     % Save the opt variable as a mat file to load directly in the preprocessing
     % scripts
