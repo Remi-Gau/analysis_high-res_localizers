@@ -18,7 +18,7 @@ function spm_my_defaults
     defaults.realign.write.mask       = 1;
     defaults.realign.write.interp     = 3;
     defaults.realign.write.wrap       = [0 0 0];
-    defaults.realign.write.which      = [0 1];
+    defaults.realign.write.which      = [2 1];
 
     % Coregistration defaults
     % ==========================================================================
@@ -51,6 +51,14 @@ function spm_my_defaults
     defaults.deformations.modulate.prefix = 'm';
     defaults.smooth.prefix                = 's';
     defaults.imcalc.prefix                = 'i';
+
+    % Mask defaults
+    % ==========================================================================
+    defaults.mask.thresh    = 0.4;
+
+    % Stats defaults
+    % ==========================================================================
+    defaults.stats.maxmem      = 2^30;
 
     % Set the defaults which are used by SPM
     % __________________________________________________________________________

@@ -1,4 +1,4 @@
-function opt = getOptionVisualLoc()
+function opt = getOptionAudioLoc()
     % returns a structure that contains the options chosen by the user to run
     % slice timing correction, pre-processing, FFX, RFX.
 
@@ -12,7 +12,7 @@ function opt = getOptionVisualLoc()
     opt.subjects = {[]};
 
     % task to analyze
-    opt.taskName = 'visualLocalizer';
+    opt.taskName = 'auditoryLocalizer';
 
     % we stay in native space (that of the T1)
     opt.space = 'T1w';
@@ -40,18 +40,18 @@ function opt = getOptionVisualLoc()
     % specify the model file that contains the contrasts to compute
     opt.model.univariate.file =  ...
         fullfile(fileparts(mfilename('fullpath')), '..', ...
-        'model', 'model-visualLocalizer_smdl.json');
+        'model', 'model-auditoryLocalizer_smdl.json');
 
     % specify the result to compute
-    %     opt.result.Steps(1) = struct( ...
-    %         'Level',  'subject', ...
-    %         'Contrasts', struct( ...
-    %                         'Name', 'motion > static', ... % has to match
-    %                         'Mask', false, ... % this might need improving if a mask is required
-    %                         'MC', 'none', ... FWE, none, FDR
-    %                         'p', 0.05, ...
-    %                         'k', 0, ...
-    %                         'NIDM', true));
+    opt.result.Steps(1) = struct( ...
+        'Level',  'subject', ...
+        'Contrasts', struct( ...
+        'Name', 'motion_gt_static', ... % has to match
+        'Mask', false, ... % this might need improving if a mask is required
+        'MC', 'FWE', ... FWE, none, FDR
+        'p', 0.05, ...
+        'k', 0, ...
+        'NIDM', true));
 
     % Save the opt variable as a mat file to load directly in the preprocessing
     % scripts
