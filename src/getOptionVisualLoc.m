@@ -18,7 +18,7 @@ function opt = getOptionVisualLoc()
     opt.space = 'T1w';
     
     % The directory where the data are located
-    opt.dataDir = '/Users/barilari/Desktop/data_temp/V5_high-res_pilot-1_raw';
+    opt.dataDir = '/Users/barilari/data/V5_high-res_pilot-1_raw';
     
     opt.derivativesDir = '/Users/barilari/data/V5_high-res_pilot-1/derivatives';
 
