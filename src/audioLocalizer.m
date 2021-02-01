@@ -23,10 +23,10 @@ anatomicalQA(opt);
 bidsResliceTpmToFunc(opt);
 functionalQA(opt);
 
-funcFWHM = 0;
+funcFWHM = 6;
 bidsSmoothing(funcFWHM, opt);
 
-% subject level Univariate
+% Subject level Univariate
 bidsFFX('specifyAndEstimate', opt, funcFWHM);
 bidsFFX('contrasts', opt, funcFWHM);
 

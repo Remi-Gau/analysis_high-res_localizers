@@ -1,0 +1,194 @@
+{
+    "STC_referenceSlice": [],
+    "anatReference": {
+        "type": "T1w",
+        "session": []
+    },
+    "contrastList": [],
+    "dataDir": "//Users/barilari/Desktop/data_temp/ses-001_localizers_CPP_SPM/raw",
+    "derivativesDir": "/Users/barilari/Desktop/data_temp/ses-001_localizers_CPP_SPM/derivatives/cpp_spm",
+    "funcVoxelDims": [],
+    "groups": [""],
+    "jobsDir": "/Users/barilari/Desktop/data_temp/ses-001_localizers_CPP_SPM/derivatives/cpp_spm/cpp_spm/JOBS/auditoryLocalizer",
+    "model": {
+        "file": "/Users/barilari/GitHub/CPP_analysis/analysis_high-res_localizers/src/../model/model-rdkBimodalMotion_smdl.json",
+        "hrfDerivatives": [0,0]
+    },
+    "parallelize": {
+        "do": false,
+        "nbWorkers": 3,
+        "killOnExit": true
+    },
+    "realign": {
+        "useUnwarp": false
+    },
+    "result": {
+        "Steps": {
+            "Contrasts": [
+                {
+                    "MC": "none",
+                    "Name": "visual_gt_auditory",
+                    "k": 0,
+                    "p": 0.001,
+                    "useMask": false
+                },
+                {
+                    "MC": "FWE",
+                    "Name": "visual_gt_auditory",
+                    "k": 0,
+                    "p": 0.05,
+                    "useMask": []
+                },
+                {
+                    "MC": "none",
+                    "Name": "auditory_gt_visual",
+                    "k": 0,
+                    "p": 0.001,
+                    "useMask": []
+                },
+                {
+                    "MC": "FWE",
+                    "Name": "auditory_gt_visual",
+                    "k": 0,
+                    "p": 0.05,
+                    "useMask": []
+                },
+                {
+                    "MC": "none",
+                    "Name": "bimodal_gt_visual",
+                    "k": 0,
+                    "p": 0.001,
+                    "useMask": []
+                },
+                {
+                    "MC": "FWE",
+                    "Name": "bimodal_gt_visual",
+                    "k": 0,
+                    "p": 0.05,
+                    "useMask": []
+                },
+                {
+                    "MC": "none",
+                    "Name": "bimodal_gt_auditory",
+                    "k": 0,
+                    "p": 0.001,
+                    "useMask": []
+                },
+                {
+                    "MC": "FWE",
+                    "Name": "bimodal_gt_auditory",
+                    "k": 0,
+                    "p": 0.05,
+                    "useMask": []
+                },
+                {
+                    "MC": "none",
+                    "Name": "visual_gt_auditory&bimodal",
+                    "k": 0,
+                    "p": 0.001,
+                    "useMask": []
+                },
+                {
+                    "MC": "FWE",
+                    "Name": "visual_gt_auditory&bimodal",
+                    "k": 0,
+                    "p": 0.05,
+                    "useMask": []
+                },
+                {
+                    "MC": "none",
+                    "Name": "auditory_gt_visual&bimodal",
+                    "k": 0,
+                    "p": 0.001,
+                    "useMask": []
+                },
+                {
+                    "MC": "FWE",
+                    "Name": "auditory_gt_visual&bimodal",
+                    "k": 0,
+                    "p": 0.05,
+                    "useMask": []
+                },
+                {
+                    "MC": "none",
+                    "Name": "bimodal_gt_visual&auditory",
+                    "k": 0,
+                    "p": 0.001,
+                    "useMask": []
+                },
+                {
+                    "MC": "FWE",
+                    "Name": "bimodal_gt_visual&auditory",
+                    "k": 0,
+                    "p": 0.05,
+                    "useMask": []
+                },
+                {
+                    "MC": "none",
+                    "Name": "bimodal",
+                    "k": 0,
+                    "p": 0.001,
+                    "useMask": []
+                },
+                {
+                    "MC": "FWE",
+                    "Name": "bimodal",
+                    "k": 0,
+                    "p": 0.05,
+                    "useMask": []
+                },
+                {
+                    "MC": "none",
+                    "Name": "auditory",
+                    "k": 0,
+                    "p": 0.001,
+                    "useMask": []
+                },
+                {
+                    "MC": "FWE",
+                    "Name": "auditory",
+                    "k": 0,
+                    "p": 0.05,
+                    "useMask": []
+                },
+                {
+                    "MC": "none",
+                    "Name": "visual",
+                    "k": 0,
+                    "p": 0.001,
+                    "useMask": []
+                },
+                {
+                    "MC": "FWE",
+                    "Name": "visual",
+                    "k": 0,
+                    "p": 0.05,
+                    "useMask": []
+                }
+            ],
+            "Level": "subject",
+            "Output": {
+                "NIDM_results": false,
+                "binary": true,
+                "csv": true,
+                "montage": {
+                    "background": "/Users/barilari/Desktop/data_temp/ses-003_CPP_SPM/derivatives_rdk/derivatives/cpp_spm/sub-pilot001/ses-003/anat/msub-pilot001_ses-003_run-1_T1w_skullstripped.nii",
+                    "do": true,
+                    "orientation": "axial",
+                    "slices": [-8,-5,-2,1,4,7,10,13]
+                },
+                "png": true,
+                "thresh_spm": true
+            }
+        }
+    },
+    "skullstrip": {
+        "threshold": 0.75
+    },
+    "sliceOrder": [],
+    "space": "individual",
+    "subjects": [[]],
+    "taskName": "auditoryLocalizer",
+    "useFieldmaps": true,
+    "zeropad": 2
+}
