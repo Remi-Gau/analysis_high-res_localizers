@@ -22,7 +22,7 @@ function opt = getOption_rdkBimotion()
     % The directory where the data are located
     opt.dataDir = '/Users/barilari/Desktop/data_temp/ses-001_localizers_CPP_SPM/raw';
 
-    opt.derivativesDir = '/Users/barilari/Desktop/data_temp/ses-001_localizers_CPP_SPM/derivatives/cpp_spm';
+    opt.derivativesDir = '/Users/barilari/Desktop/data_temp/ses-001_localizers_CPP_SPM/derivatives/cpp_spm-task-visualLocalizer';
 
     % Options for slice time correction
     % If left unspecified the slice timing will be done using the mid-volume acquisition
@@ -120,7 +120,7 @@ function opt = getOption_rdkBimotion()
     opt.result.Steps(1).Output.binary = true();
 
     opt.result.Steps(1).Output.montage.do = true();
-    opt.result.Steps(1).Output.montage.slices = -8:3:15; % in mm
+    opt.result.Steps(1).Output.montage.slices = -38:3:28; % in mm
 
     % axial is default 'sagittal', 'coronal'
     opt.result.Steps(1).Output.montage.orientation = 'axial';
@@ -130,7 +130,7 @@ function opt = getOption_rdkBimotion()
     % opt.result.Steps(1).Output.montage.background = ...
     %   fullfile(spm('dir'), 'canonical', 'avg152T1.nii,1');
 
-    opt.result.Steps(1).Output.montage.background = '/Users/barilari/Desktop/data_temp/ses-001_localizers_CPP_SPM/derivatives/cpp_spm/sub-pilot001/ses-001/anat/msub-pilot001_ses-003_run-1_T1w_skullstripped.nii';
+    opt.result.Steps(1).Output.montage.background = '/Users/barilari/Desktop/data_temp/ses-001_localizers_CPP_SPM/derivatives/cpp_spm-task-visualLocalizer/sub-pilot001/ses-001/anat/msub-pilot001_ses-003_run-1_T1w_skullstripped.nii';
 
     %
     %   opt.result.Steps(1).Output.NIDM_results = true();

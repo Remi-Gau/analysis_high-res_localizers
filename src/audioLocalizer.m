@@ -31,3 +31,30 @@ bidsFFX('specifyAndEstimate', opt, funcFWHM);
 bidsFFX('contrasts', opt, funcFWHM);
 
 bidsResults(opt, funcFWHM);
+
+funcFWHM = 0;
+bidsSmoothing(funcFWHM, opt);
+
+% subject level Univariate
+bidsFFX('specifyAndEstimate', opt, funcFWHM);
+bidsFFX('contrasts', opt, funcFWHM);
+
+bidsResults(opt, funcFWHM);
+
+funcFWHM = 2;
+bidsSmoothing(funcFWHM, opt);
+
+% subject level Univariate
+bidsFFX('specifyAndEstimate', opt, funcFWHM);
+bidsFFX('contrasts', opt, funcFWHM);
+
+bidsResults(opt, funcFWHM);
+
+funcFWHM = 8;
+bidsSmoothing(funcFWHM, opt);
+
+% subject level Univariate
+bidsFFX('specifyAndEstimate', opt, funcFWHM);
+bidsFFX('contrasts', opt, funcFWHM);
+
+bidsResults(opt, funcFWHM);
