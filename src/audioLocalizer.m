@@ -1,29 +1,60 @@
+% Batch auditory localizer high-res
+
 clear;
 clc;
 
-% Smoothing to apply
-FWHM = 6;
-isMVPA = false;
-
-cd(fileparts(mfilename('fullpath')));
-
-addpath(fullfile(fileparts(mfilename('fullpath')), '..'));
-
-initEnv();
-
-% we add all the subfunctions that are in the sub directories
+%% Run batches
 opt = getOptionAudioLoc();
 
 checkDependencies();
 
-%% Run batches
+reportBIDS(opt);
 
-% bidsCopyRawFolder(opt, 1);
-% bidsRealignReslice(opt);
-% bidsSmoothing(FWHM, opt);
-% bidsFFX('specifyAndEstimate', opt, FWHM, isMVPA);
-% bidsFFX('contrasts', opt, FWHM, isMVPA);
-% bidsFFX('specifyAndEstimate', opt, 0, isMVPA);
-% bidsFFX('contrasts', opt, 0, isMVPA);
+bidsCopyRawFolder(opt, 1);
 
-bidsResults(opt, FWHM, [], isMVPA);
+% preprocessing
+bidsSTC(opt);
+bidsSpatialPrepro(opt);
+
+% Quality control
+% anatomicalQA(opt);
+
+% Not implemented yet
+bidsResliceTpmToFunc(opt);
+% functionalQA(opt);
+
+funcFWHM = 6;
+bidsSmoothing(funcFWHM, opt);
+
+% Subject level Univariate
+bidsFFX('specifyAndEstimate', opt, funcFWHM);
+bidsFFX('contrasts', opt, funcFWHM);
+
+bidsResults(opt, funcFWHM);
+
+funcFWHM = 0;
+bidsSmoothing(funcFWHM, opt);
+
+% subject level Univariate
+bidsFFX('specifyAndEstimate', opt, funcFWHM);
+bidsFFX('contrasts', opt, funcFWHM);
+
+% bidsResults(opt, funcFWHM);
+
+% funcFWHM = 2;
+% bidsSmoothing(funcFWHM, opt);
+% 
+% % subject level Univariate
+% bidsFFX('specifyAndEstimate', opt, funcFWHM);
+% bidsFFX('contrasts', opt, funcFWHM);
+% 
+% bidsResults(opt, funcFWHM);
+% 
+% funcFWHM = 8;
+% bidsSmoothing(funcFWHM, opt);
+% 
+% % subject level Univariate
+% bidsFFX('specifyAndEstimate', opt, funcFWHM);
+% bidsFFX('contrasts', opt, funcFWHM);
+% 
+% bidsResults(opt, funcFWHM);
