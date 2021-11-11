@@ -130,7 +130,7 @@ function opt = getOption_rdkBimotion()
     % opt.result.Steps(1).Output.montage.background = ...
     %   fullfile(spm('dir'), 'canonical', 'avg152T1.nii,1');
 
-    opt.result.Steps(1).Output.montage.background = '/Users/barilari/Desktop/data_temp/ses-001_localizers_CPP_SPM/derivatives/cpp_spm-task-visualLocalizer/sub-pilot001/ses-001/anat/msub-pilot001_ses-003_run-1_T1w_skullstripped.nii';
+    opt.result.Steps(1).Output.montage.background = '/Users/barilari/Desktop/data_temp/ses-001_localizers_CPP_SPM/derivatives/cpp_spm-task-visualLocalizer/sub-pilot001/ses-001/anat/msub-pilot001_ses-008_run-1_T1w_skullstripped.nii';
 
     %
     %   opt.result.Steps(1).Output.NIDM_results = true();
