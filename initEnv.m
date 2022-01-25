@@ -1,18 +1,21 @@
-%
-% 1 - Check if version requirements
-% are satisfied and the packages are
-% are installed/loaded:
-%   Octave > 4
-%       - image
-%       - optim
-%       - struct
-%       - statistics
-%
-%   MATLAB > R2017a
-%
-% 2 - Add project to the O/M path
+% (C) Copyright 2020 Agah Karakuzu
+% (C) Copyright 2020 Remi Gau, Marco Barilari
 
-function initEnv
+function initEnv()
+    % initEnv()
+    %
+    % 1 - Check if version requirements
+    % are satisfied and the packages are
+    % are installed/loaded:
+    %   Octave > 4
+    %       - image
+    %       - optim
+    %       - struct
+    %       - statistics
+    %
+    %   MATLAB > R2017a
+    %
+    % 2 - Add project to the O/M path
 
     %
     matlabVersion = '9.2.0';
@@ -29,25 +32,16 @@ function initEnv
         end
 
         for ii = 1:length(installlist)
+
+            packageName = installlist{ii};
+
             try
                 % Try loading Octave packages
-                disp(['loading ' installlist{ii}]);
-                pkg('load', installlist{ii});
+                disp(['loading ' packageName]);
+                pkg('load', packageName);
 
             catch
-                errorcount = 1;
-                while errorcount % Attempt twice in case installation fails
-                    try
-                        pkg('install', '-forge', installlist{ii});
-                        pkg('load', installlist{ii});
-                        errorcount = 0;
-                    catch err
-                        errorcount = errorcount + 1;
-                        if errorcount > 2
-                            error(err.message);
-                        end
-                    end
-                end
+                tryInstallFromForge(packageName);
             end
         end
 
@@ -85,6 +79,24 @@ function retval = isOctave
     end
 
     retval = cacheval;
+end
+
+function tryInstallFromForge(packageName)
+
+    errorcount = 1;
+    while errorcount % Attempt twice in case installation fails
+        try
+            pkg('install', '-forge', packageName);
+            pkg('load', packageName);
+            errorcount = 0;
+        catch err
+            errorcount = errorcount + 1;
+            if errorcount > 2
+                error(err.message);
+            end
+        end
+    end
+
 end
 
 function addDependencies()

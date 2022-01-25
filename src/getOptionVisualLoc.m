@@ -1,3 +1,5 @@
+% (C) Copyright 2020 Remi Gau, Marco Barilari
+
 function opt = getOptionVisualLoc()
     % returns a structure that contains the options chosen by the user to run
     % slice timing correction, pre-processing, FFX, RFX.

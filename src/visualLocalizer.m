@@ -16,10 +16,12 @@ opt = getOptionVisualLoc();
 
 checkDependencies();
 
+reportBIDS(opt);
+
 %% Run batches
 
 % bidsCopyRawFolder(opt, 1);
-bidsRealignReslice(opt);
+% bidsRealignReslice(opt);
 % bidsSmoothing(FWHM, opt);
 % bidsFFX('specifyAndEstimate', opt, FWHM, isMVPA);
 % bidsFFX('contrasts', opt, FWHM, isMVPA);
